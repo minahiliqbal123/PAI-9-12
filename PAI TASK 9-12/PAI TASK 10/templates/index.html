@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>🏥 Hospital InfoBot</title>
+  <style>
+    :root {
+      --primary: #00bcd4;
+      --primary-dark: #008394;
+      --bg-gradient: linear-gradient(to right, #e0f7fa, #ffffff);
+      --user-color: #e3f2fd;
+      --bot-color: #d1f2eb;
+      --text-color: #333;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: var(--bg-gradient);
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .chat-container {
+      width: 420px;
+      max-width: 90%;
+      background: white;
+      border-radius: 20px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      animation: fadeIn 0.5s ease-in;
+    }
+
+    .header {
+      background-color: var(--primary);
+      color: white;
+      text-align: center;
+      padding: 20px;
+      font-size: 1.4rem;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .header::before {
+      content: "🏥";
+      font-size: 1.6rem;
+      margin-right: 10px;
+    }
+
+    .chatbox {
+      background-color: #fdfdfd;
+      height: 400px;
+      padding: 20px;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .message {
+      padding: 12px 16px;
+      border-radius: 20px;
+      max-width: 80%;
+      line-height: 1.5;
+      position: relative;
+      opacity: 0;
+      animation: popIn 0.3s forwards;
+    }
+
+    .user {
+      align-self: flex-end;
+      background: var(--user-color);
+      color: var(--text-color);
+      border-bottom-right-radius: 0;
+    }
+
+    .bot {
+      align-self: flex-start;
+      background: var(--bot-color);
+      color: var(--text-color);
+      border-bottom-left-radius: 0;
+    }
+
+    .input-area {
+      display: flex;
+      border-top: 1px solid #eee;
+      background: white;
+    }
+
+    input[type="text"] {
+      flex: 1;
+      padding: 15px;
+      font-size: 1rem;
+      border: none;
+      border-radius: 0;
+      outline: none;
+    }
+
+    button {
+      background-color: var(--primary);
+      color: white;
+      padding: 0 20px;
+      font-size: 1rem;
+      border: none;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background-color: var(--primary-dark);
+    }
+
+    .toggle-mode {
+      position: absolute;
+      bottom: 20px;
+      right: 20px;
+      background-color: var(--primary-dark);
+      color: white;
+      border: none;
+      padding: 10px 14px;
+      font-size: 0.9rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      cursor: pointer;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes popIn {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+  </style>
+</head>
+<body>
+  <div class="chat-container">
+    <div class="header">Hospital InfoBot</div>
+    <div class="chatbox" id="chatbox"></div>
+    <div class="input-area">
+      <input id="userInput" type="text" placeholder="Ask me anything about the hospital..." onkeypress="if(event.key === 'Enter') sendMessage()">
+      <button onclick="sendMessage()">Send</button>
+    </div>
+  </div>
+
+  <button class="toggle-mode" onclick="toggleMode()">Dark Mode</button>
+
+  <script>
+    function sendMessage() {
+      const userInput = document.getElementById("userInput").value.trim();
+      if (userInput === "") return;
+
+      const chatbox = document.getElementById("chatbox");
+      chatbox.innerHTML += `<div class='message user'><strong>You:</strong> ${userInput}</div>`;
+
+      fetch("/get?msg=" + encodeURIComponent(userInput))
+        .then(response => response.json())
+        .then(data => {
+          chatbox.innerHTML += `<div class='message bot'><strong>Bot:</strong> ${data.response}</div>`;
+          chatbox.scrollTop = chatbox.scrollHeight;
+        });
+
+      document.getElementById("userInput").value = "";
+    }
+
+    function toggleMode() {
+      document.body.classList.toggle("dark-mode");
+    }
+  </script>
+</body>
+</html>
+
+

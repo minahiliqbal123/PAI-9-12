@@ -1,0 +1,40 @@
+{
+    "intents": [
+      {
+        "tag": "greeting",
+        "patterns": ["hello", "hi", "hey", "good morning", "good evening", "how are you"],
+        "responses": ["Hello! Welcome to Hospital InfoBot. How can I assist you today?"]
+      },
+      {
+        "tag": "services",
+        "patterns": ["what services", "medical services", "what do you offer", "healthcare services", "what treatments"],
+        "responses": ["We offer services such as general checkups, emergency care, surgery, maternity, pediatrics, and diagnostics."]
+      },
+      {
+        "tag": "appointments",
+        "patterns": ["how to book appointment", "schedule visit", "see a doctor", "appointment process", "book doctor"],
+        "responses": ["You can book an appointment by calling +1-800-HOSP-APP or visiting hospital.com/appointments."]
+      },
+      {
+        "tag": "doctors",
+        "patterns": ["who are the doctors", "doctor list", "available specialists", "doctors on duty", "consultants"],
+        "responses": ["We have specialists in Cardiology, Neurology, Orthopedics, Pediatrics, and more. Visit hospital.com/doctors to see the full list."]
+      },
+      {
+        "tag": "visiting_hours",
+        "patterns": ["visiting hours", "when can i visit", "hospital timings", "visit patients", "timing"],
+        "responses": ["Visiting hours are from 10 AM to 6 PM every day. Please follow COVID-19 guidelines during visits."]
+      },
+      {
+        "tag": "contact",
+        "patterns": ["how to contact", "hospital phone number", "email", "support", "emergency number"],
+        "responses": ["You can contact us at support@hospital.com or call our helpline at +1-800-HOSPITAL."]
+      },
+      {
+        "tag": "goodbye",
+        "patterns": ["bye", "goodbye", "see you", "thanks", "thank you"],
+        "responses": ["Goodbye! Wishing you good health. Feel free to ask if you have more questions."]
+      }
+    ]
+  }
+  

@@ -1,0 +1,76 @@
+{
+  "intents": [
+    {
+      "tag": "greeting",
+      "responses": [
+        "Hello! Welcome to the Restaurant InfoBot. How can I help you today?",
+        "Hi there! Looking for restaurant info? I'm here to assist.",
+        "Hey! Want to know about menus, reservations, or opening hours?",
+        "Good to see you! What restaurant information can I help you with?"
+      ]
+    },
+    {
+      "tag": "restaurant_info",
+      "responses": [
+        "I can help you with details about menu items, opening hours, reservations, locations, and contact info. What would you like to know?",
+        "Ask me anything about the restaurant — from cuisines to services.",
+        "Need help with bookings, meals, or timings? Just let me know!",
+        "I provide information about the restaurant's offerings. Where shall we start?"
+      ]
+    },
+    {
+      "tag": "menu",
+      "responses": [
+        "Our menu includes appetizers, main courses, desserts, and beverages across various cuisines.",
+        "We offer a wide range of dishes including vegan, vegetarian, and gluten-free options.",
+        "From Italian pastas to spicy Indian curries, our menu has something for everyone.",
+        "Check out our menu online for a full list of dishes and prices."
+      ]
+    },
+    {
+      "tag": "reservations",
+      "responses": [
+        "You can make a reservation through our website or call us directly.",
+        "Reservations are available for lunch and dinner. Visit restaurant.com/reserve to book your table.",
+        "Want to dine in? Just reserve a spot using our online booking system.",
+        "To make a reservation, choose your preferred time and date online or give us a call."
+      ]
+    },
+    {
+      "tag": "hours",
+      "responses": [
+        "We’re open from 11 AM to 10 PM on weekdays and 10 AM to 11 PM on weekends.",
+        "Our restaurant operates daily, with extended hours on Fridays and Saturdays.",
+        "Opening hours vary slightly on holidays. Check our website for the latest updates.",
+        "We're happy to serve you every day. See our full schedule online for details."
+      ]
+    },
+    {
+      "tag": "location",
+      "responses": [
+        "We’re located at 123 Flavor Street, Downtown. Parking is available!",
+        "You’ll find us near Central Park — easy to reach by public transit or car.",
+        "Visit our multiple locations across the city. Find the nearest one on our site.",
+        "Our main branch is in the heart of the city. Come visit us!"
+      ]
+    },
+    {
+      "tag": "contact",
+      "responses": [
+        "You can reach us at contact@restaurant.com or call +1-800-FOOD-INFO.",
+        "For assistance, email our team or use the chat option on our website.",
+        "Need help or have feedback? Reach out to us anytime.",
+        "Our support team is happy to help. Contact us for inquiries or concerns."
+      ]
+    },
+    {
+      "tag": "goodbye",
+      "responses": [
+        "Goodbye! Come back anytime for more restaurant info.",
+        "Take care! We hope to serve you soon.",
+        "Bon appétit and see you again soon!",
+        "Thanks for stopping by. Visit us again for more delicious updates!"
+      ]
+    }
+  ]
+}
